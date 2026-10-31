@@ -8,10 +8,10 @@ A neuroscience adaptation of Krillion's Puffer Party. Name an unused answer, pas
 
 - **Host a room:** choose Public (listed) or Private (code only), then share its four-letter code or invite link. The host adjusts lives, minimum turn, seat count, heart cap, and points per heart.
 - **Quick Play / Rated:** joins another human table with the selected capacity, or opens one and waits for another person. Bots appear only in the explicitly labeled practice mode. Ratings are a simple local-device system, not Krillion's rating algorithm or a global account ladder.
-- **Puffer Party:** three-second countdown, shared category, turn ownership, live typing, no repeated answers, rarity points, extra hearts, hidden fuse, elimination, and last-survivor victory. A wrong answer keeps the puffer with you. Every recipient gets at least the minimum turn. Pops change the category. Rematches seat the requester and people who opted into auto-join; other participants can choose Join Next Game.
+- **Puffer Party:** three-second countdown, shared category, turn ownership, live typing, no repeated answers, rarity points, extra hearts, hidden fuse, elimination, and last-survivor victory. A visible turn clock counts elapsed seconds and a progress bar shows the guaranteed minimum; PUFFER LIVE marks overtime without revealing the random pop deadline. The puffer floats near the ring centre, smoothly turns toward the holder, and keeps its animation across state updates. Its size fits the clear space between players, and shrimp, perches and labels always draw in front of it. A wrong answer keeps the puffer with you. Every recipient gets at least the minimum turn. Pops change the category. Rematches seat the requester and people who opted into auto-join; other participants can choose Join Next Game.
 - **Online continuity:** refresh recovers the same seat. HTTPS polling retries temporary failures. Leaving or a timed-out host transfers control to another connected player. Joining during a match creates a spectator seat. Chat and removal are host controlled.
 - **Practice / one-screen party:** use bots or share one screen with friends. These modes run locally.
-- **Daily Neural Dive:** seven date-seeded questions, 25 seconds each, 700 points maximum, resetting at midnight in New York. Completing consecutive daily dives unlocks the original buddy sequence at 5, 14, 30, and 45 days on this browser.
+- **Daily Neural Dive:** a surface introduction, descent previews, seven date-seeded questions, a visible 25-second sonar timer, answer reveals, and explicit Descend/Surface actions. Every point sinks the camera 10 metres; a perfect 700 reaches 7,000m. The first completed result, in-progress timer, answer sheets, streak and logbook persist on this browser. Practice replays preserve the official result. Daily resets follow New York midnight, including daylight-saving changes. Completing consecutive daily dives unlocks buddies at 5, 14, 30, and 45 days.
 - **Study the bank:** search categories, answers, aliases, explanations, and linked references.
 
 ## Neuroscience library
@@ -29,7 +29,7 @@ Every category has a designated **100-point introductory-course anchor**. More s
 | Deep cut | 85 |
 | Neurokrillion | 100 |
 
-Banks are curated, not exhaustive. A scientifically valid answer can be absent. Aliases and standard abbreviations are accepted. Unambiguous minor spelling errors are accepted for longer answers; short abbreviations must match. Each category links its background source. Newly written explanations draw on Purves, Allen Institute, Janelia, Jackson Laboratory, NINDS, and relevant primary research.
+Banks are curated, not exhaustive. A scientifically valid answer can be absent. Aliases and standard abbreviations are accepted. Loose spelling and sound-alike matches offer corrections. A clear match fills the canonical answer into the field; ambiguous matches offer choices. The player must press SEND or DIVE again to earn points. Corrections preserve the running clock and cannot reuse an already-used party answer. Exact names and registered aliases submit immediately. Very short near-misses and unrelated guesses remain invalid. Each category links its background source. Newly written explanations draw on Purves, Allen Institute, Janelia, Jackson Laboratory, NINDS, and relevant primary research.
 
 ## Run and verify
 
@@ -68,4 +68,4 @@ Nicknames, buddy selection, daily streaks, ratings, and personal results are sto
 
 ## Attribution and license
 
-See [THIRD-PARTY.md](THIRD-PARTY.md). **The `krillion-*.png` files and `original-krillion.css` are Krillion presentation material and are excluded from this project's MIT license.** This repository does not claim ownership or grant a license to those assets. The original game remains credited. The original neuroscience questions, room service, and adaptation code are MIT licensed; the font has its own SIL Open Font License.
+See [THIRD-PARTY.md](THIRD-PARTY.md). **The `krillion-*` artwork files and `original-krillion.css` are Krillion presentation material and are excluded from this project's MIT license.** This repository does not claim ownership or grant a license to those assets. The original game remains credited. The original neuroscience questions, room service, and adaptation code are MIT licensed; the font has its own SIL Open Font License.

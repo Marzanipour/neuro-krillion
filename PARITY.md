@@ -38,3 +38,13 @@ This is a close reconstruction of observed Puffer Party, **not proof of identica
 Neuroscience questions, aliases, explanations, and scores replace the general-knowledge content. Exact original answer frequencies, matchmaking criteria, rating mathematics, random fuse distribution, category-selection policy, anti-abuse controls, and account persistence cannot be established from the captured UI. The adaptation uses documented local implementations and a new HTTPS room service. Rated changes are simple local-device changes; there is no claim of reproducing Krillion's competitive ladder. The first holder is the first seated player in this implementation; a reference game started with the guest. Third-party ads, account sign-in, analytics, and payment flows are omitted. Practice, one-screen party, study bank, and Daily Neural Dive are educational additions. Audio feedback is synthesized rather than a verified copy of the original sound design. Animation phase and changing public-room data naturally differ between captures.
 
 A zero pixel difference would still not establish behavioral parity. The repeatable capture scenarios, explicit unknowns, state-transition tests, and independent-browser verification provide reviewable evidence without making that claim.
+
+## Daily Dive, clocks and correction update
+
+The original Daily Dive was inspected directly on 2026-10-31, including its surface introduction, 25-second sonar clock, two-step correction preview, reveal screen, explicit descent, and ten-metres-per-point depth. The adaptation now follows that sequence with neuroscience content, deterministic daily questions, refresh recovery, daily result history, separate practice replay, and New York midnight resets. Its pixel ocean is newly drawn, so it is not claimed to be a pixel-identical copy of the original canvas renderer.
+
+The party renderer keeps the same puffer element across state updates and eases its orientation toward the holder while it floats at the centre, matching the observed original movement. Card animations no longer affect measured seat geometry. A visible elapsed-turn clock and minimum-turn progress bar use a server holder timestamp; the random fuse deadline stays private.
+
+Loose near matches produce a correction or a small set of alternatives. Previewing a correction never awards points or pauses a clock. Canonical resubmission is required. Unconfirmed daily corrections cannot receive points automatically at timeout.
+
+Puffer clearance also adapts its rotating footprint to the occupied seat bounds. Shrimp, perches and nameplates render above the puffer as a second safeguard against occlusion, including on narrow screens.

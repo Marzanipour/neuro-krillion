@@ -120,8 +120,8 @@ export class RoomService{
    const host=()=>{if(room.hostId!==playerId)throw new RoomError('Only the host can change this.',403);};
    if(action==='answer'){
     if(typeof input.answer!=='string'||input.answer.length>100)throw new RoomError('Type an answer of 100 characters or fewer.');
-    room.typing=null;feedback=room.game.submit(playerId,input.answer,now);if(!feedback.ok)throw new RoomError(feedback.message,422);
-    changed=true;visible=true;
+    room.typing=null;feedback=room.game.submit(playerId,input.answer,now);if(!feedback.ok&&!feedback.suggestions)throw new RoomError(feedback.message,422);
+    changed=feedback.ok;visible=feedback.ok;
    }else if(action==='typing'){if(room.game.phase==='playing'&&room.game.players[room.game.turn]?.id===playerId){room.typing={playerId,text:String(input.text||'').slice(0,100),at:now};changed=true;visible=true;}}else if(action==='start'){host();startGame(room,now);changed=true;visible=true;}
    else if(action==='rematch'){if(room.game.phase!=='finished')throw new RoomError('Finish this game before a rematch.');rematch(room,now,playerId);changed=true;visible=true;}
    else if(action==='ready'){if(room.game.phase!=='lobby')throw new RoomError('Join the next game after this round.');player.spectator=false;player.hearts=room.game.settings.lives;changed=true;visible=true;}

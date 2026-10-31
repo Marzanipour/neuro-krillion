@@ -1,4 +1,5 @@
 import {BANK} from './bank.js';
+import {resolveGuess} from './guesses.js';
 
 export const normalize = value => String(value).normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
 export function distance(a,b) {
@@ -41,7 +42,7 @@ export class Party {
     if(this.cursor>=this.order.length){this.order=shuffle(this.order,this.random);this.cursor=0;}
     this.questionId=this.order[this.cursor];this.used=[];this.round++;
   }
-  newFuse(now){this.deadline=now+12000+Math.floor(this.random()*18000);this.fuseStart=now;this.danger=0;}
+  newFuse(now){this.holderSince=now;this.deadline=now+Math.max(this.settings.minTurn*1000,12000+Math.floor(this.random()*18000));this.fuseStart=now;this.danger=0;}
   start(now=Date.now()){
     if(this.players.filter(p=>!p.spectator&&!p.disconnected).length<2)return false;
     this.players.forEach(p=>{p.hearts=p.spectator||p.disconnected?0:this.settings.lives;p.meter=0;p.score=0;p.answers=0;});
@@ -50,15 +51,15 @@ export class Party {
   nextTurn(now){
     let next=this.turn;
     do{next=(next+1)%this.players.length;}while(this.players[next].hearts<=0&&next!==this.turn);
-    this.turn=next;
+    this.turn=next;this.holderSince=now;
     this.deadline=Math.max(this.deadline,now+this.settings.minTurn*1000);
   }
   submit(playerId,input,now=Date.now()){
     if(this.phase!=='playing'||this.players[this.turn]?.id!==playerId)return {ok:false,message:'Wait for your turn.'};
     if(now>=this.deadline){this.tick(now);return {ok:false,message:'The puffer popped!'};}
-    const answer=matchAnswer(this.question,input);
-    if(!answer)return {ok:false,message:'Not in this category’s bank. Try another answer!'};
-    if(this.used.includes(answer.name))return {ok:false,message:'Already said! Find a different answer.'};
+    const resolution=resolveGuess(this.question,input,this.used);
+    if(!resolution.ok)return resolution;
+    const answer=resolution.answer;
     const player=this.players[this.turn];
     this.used.push(answer.name); player.score+=answer.points;player.meter+=answer.points;player.answers++;
     let heart=false;
@@ -91,6 +92,6 @@ export class Party {
     else if(index===this.turn){this.nextTurn(now);}
   }
   snapshot(){
-    return {settings:this.settings,players:this.players,phase:this.phase,turn:this.turn,questionId:this.questionId,used:this.used,log:this.log,round:this.round,notice:this.notice,winner:this.winner,danger:this.danger||0};
+    return {settings:this.settings,players:this.players,phase:this.phase,turn:this.turn,questionId:this.questionId,used:this.used,log:this.log,round:this.round,notice:this.notice,winner:this.winner,holderSince:this.holderSince??null,danger:this.danger||0};
   }
 }
