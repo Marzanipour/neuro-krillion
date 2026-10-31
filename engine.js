@@ -1,4 +1,4 @@
-import {BANK} from './bank.js';
+import {BANK,PLAY_BANK} from './bank.js?v=5';
 import {resolveGuess} from './guesses.js';
 
 export const normalize = value => String(value).normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
@@ -33,7 +33,7 @@ export class Party {
     this.random=random;
     this.settings={lives:2,minTurn:8,heartCap:5,pointsPerHeart:600,...settings};
     this.players=players.map(p=>({...p,hearts:this.settings.lives,meter:0,score:0,answers:0}));
-    this.order=shuffle(BANK.map(q=>q.id),random); this.cursor=-1;
+    this.order=shuffle(PLAY_BANK.map(q=>q.id),random); this.cursor=-1;
     this.phase='lobby'; this.turn=0; this.used=[]; this.log=[]; this.round=0; this.notice='';
   }
   get question(){return BANK.find(q=>q.id===this.questionId);}

@@ -1,4 +1,6 @@
 import {EXPANSION} from './bank-expansion.js';
+import {ADDITIONS} from './bank-additions.js';
+import {buildPlayBank} from './bank-play.js';
 // Original, editorially scored educational bank. Scores are not survey frequencies.
 // Row: canonical answer | points | explanation | optional aliases separated by ~
 const sets = [
@@ -506,5 +508,8 @@ const originalBank = sets.map(([id,prompt,topic,hint,anchor,source,rows]) => ({
     return {name,points:Number(points),explanation,aliases:aliases.split('~').filter(Boolean)};
   })
 }));
-export const BANK = [...originalBank,...EXPANSION];
+export const STUDY_BANK = [...originalBank,...EXPANSION,...ADDITIONS];
+export const PLAY_BANK = buildPlayBank(STUDY_BANK);
+export const BANK = [...PLAY_BANK,...STUDY_BANK];
+export const LIBRARY_STATS = {playCategories:PLAY_BANK.length,minAnswers:Math.min(...PLAY_BANK.map(q=>q.answers.length)),maxAnswers:Math.max(...PLAY_BANK.map(q=>q.answers.length)),uniqueAnswers:new Set(BANK.flatMap(q=>q.answers.map(a=>a.name.normalize('NFKD').toLowerCase().replace(/[^a-z0-9]/g,'')))).size};
 export const tierFor = points => TIERS.find(t => t.points === points) || TIERS[0];

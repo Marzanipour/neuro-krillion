@@ -48,3 +48,11 @@ The party renderer keeps the same puffer element across state updates and eases 
 Loose near matches produce a correction or a small set of alternatives. Previewing a correction never awards points or pauses a clock. Canonical resubmission is required. Unconfirmed daily corrections cannot receive points automatically at timeout.
 
 Puffer clearance also adapts its rotating footprint to the occupied seat bounds. Shrimp, perches and nameplates render above the puffer as a second safeguard against occlusion, including on narrow screens.
+
+## Larger keys and visible scored descents
+
+New Party and Daily games use ten deliberately broader neuroscience prompts, with 241–1,903 canonical answer names per prompt. The 113 narrower study sets remain available and older in-progress dives still resolve their saved question IDs. All aliases are checked for collisions after pooling; counts do not count aliases as separate answers. Anatomy labels and exact synonyms include an attributed, reproducibly selected Uberon subset. Scores are editorial and every playable key retains an introductory-course 100-point anchor.
+
+Daily answers now enter a persisted `diving` phase before the reveal. The shrimp moves and turns downward, leaves bubbles, and the depth counter and camera interpolate to exactly ten metres per point. The visible excursion and duration scale with points; zero-point answers do not fabricate a descent. The new motion curve is an adaptation, not a claim of identical original animation timing. Enter starts, submits, descends and surfaces; focus in other controls and open dialogs prevents the global shortcut from taking over. `rea-daily-audit.mjs` uses the official pinned REA CLI from morluto/rea to capture these transitions.
+
+Recorded REA keyboard/descent evidence: `ev_303d4b5ff8bb500b74356afe0b34837d6f91a16d10fa5190e71c5841436ff3d4`. The declared intro, Enter, answer, moving-shrimp, reveal and next-prompt steps completed; the owned browser was terminated. Browser captures also confirm the depth counter interpolated to 1,000m. Reduced-motion mode is respected; the motion audit explicitly requests `no-preference`.

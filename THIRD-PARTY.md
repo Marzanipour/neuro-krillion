@@ -17,3 +17,7 @@ No original Krillion answer bank, private server implementation, account data, o
 - PeerJS 1.5.5: MIT; `PEERJS-LICENSE`. Legacy vendored file; the application no longer loads it.
 
 The repository's MIT license applies only to original contributions for which the contributors hold the necessary rights.
+
+## Uberon anatomy supplement
+
+`bank-anatomy.js` contains a selected, transformed subset of the [Uberon multi-species anatomy ontology](https://github.com/obophenotype/uberon), developed by the Uberon contributors, under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). The full applicable license is in `UBERON-LICENSE.txt`; this derived data is excluded from this repository’s MIT license. Labels and exact synonyms come from the nervous-minimal release; explanatory parent descriptions and scores are generated for this educational adaptation. Selection is restricted to non-obsolete human-subset neural structures with anatomical labels, excluding side duplicates and abstract grouping terms. `import-neural-ontology.py` reproduces the transformation; `ANATOMY_SOURCE` records the download URL and SHA-256. No endorsement by the ontology contributors is implied.

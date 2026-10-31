@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {BANK} from './bank.js';
+import {BANK,PLAY_BANK} from './bank.js';
 import {Party,matchAnswer,normalize} from './engine.js';
 
 const players=[{id:'a',name:'Ada'},{id:'b',name:'Ben'},{id:'c',name:'Cam'}];
@@ -82,7 +82,7 @@ test('exhausting a bank gives a fresh category without costing a heart',()=>{
  game.submit('a',q.answers.at(-1).name,2000);assert.notEqual(game.questionId,'transmitters');assert.equal(game.round,2);assert.equal(game.players[0].hearts,2);
 });
 test('question order visits each category before repeating',()=>{
- const game=party();game.cursor=-1;const found=new Set();for(let i=0;i<BANK.length;i++){game.nextQuestion();found.add(game.questionId);}assert.equal(found.size,BANK.length);
+ const game=party();game.cursor=-1;const found=new Set();for(let i=0;i<PLAY_BANK.length;i++){game.nextQuestion();found.add(game.questionId);}assert.equal(found.size,PLAY_BANK.length);
 });
 test('disconnecting the current player passes to the next survivor',()=>{
  const game=party();game.remove('a',2000);assert.equal(game.turn,1);assert.equal(game.players[0].hearts,0);assert.equal(game.players[0].disconnected,true);

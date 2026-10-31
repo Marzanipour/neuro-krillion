@@ -1,5 +1,5 @@
 import {Party} from './engine.js';
-import {BANK} from './bank.js';
+import {BANK,LIBRARY_STATS} from './bank.js';
 
 // Public, server-authoritative HTTPS transport. No peer-to-peer connectivity needed.
 const ROOM_TTL=30*60*1000, RECONNECT_GRACE=90000;
@@ -60,7 +60,7 @@ export function publicState(room,playerId,now=Date.now()){
 }
 export class RoomService{
  constructor(db,clock=()=>Date.now()){this.db=db;this.clock=clock;}
- async health(){await this.db.prepare('SELECT code FROM nk_rooms LIMIT 1').first();return {ok:true,transport:'https',version:2,categories:BANK.length,answers:BANK.reduce((n,q)=>n+q.answers.length,0)};}
+ async health(){await this.db.prepare('SELECT code FROM nk_rooms LIMIT 1').first();return {ok:true,transport:'https',version:4,...LIBRARY_STATS,categories:BANK.length,answers:BANK.reduce((n,q)=>n+q.answers.length,0)};}
  async list(){const now=this.clock();const {results}=await this.db.prepare('SELECT code, data FROM nk_rooms WHERE public = 1 AND updated_at > ? ORDER BY updated_at DESC LIMIT 80').bind(now-120000).all();return {rooms:results.map(r=>JSON.parse(r.data)).filter(r=>onlinePlayers(r).length>0).map(r=>({code:r.code,host:r.game.players.find(p=>p.id===r.hostId)?.name||'Neural party',count:onlinePlayers(r).length,seats:r.game.settings.seats,phase:r.game.phase,rated:r.rated,full:onlinePlayers(r).length>=r.game.settings.seats}))};}
  async create(input={}){
   const now=this.clock(),playerId=crypto.randomUUID(),secret=token();
