@@ -6,7 +6,7 @@ Neuro Krillion is an independent educational adaptation. It is not affiliated wi
 
 Source: https://krillion.io/party, observed on 2026-10-31 using the user-requested [REA toolkit](https://github.com/morluto/rea).
 
-The files `krillion-*.png` and `krillion-water-bg.webp` reproduce visible reef, perch, mascot, and puffer artwork from the original website. `original-krillion.css` preserves its browser-delivered presentation styles. These materials remain the property of their respective owners; no ownership or MIT licensing of them is claimed. Scene geometry in `layout.js` was reconstructed from the original browser renderer. Attribution does not independently grant redistribution rights.
+The files `krillion-*.png` and `krillion-water-bg.webp` reproduce visible reef, perch, mascot (including gold and the date-limited Halloween variants), and puffer artwork from the original website. `original-krillion.css` preserves its browser-delivered presentation styles. These materials remain the property of their respective owners; no ownership or MIT licensing of them is claimed. Scene geometry in `layout.js` was reconstructed from the original browser renderer. Attribution does not independently grant redistribution rights.
 
 No original Krillion answer bank, private server implementation, account data, or advertising scripts are included. The neuroscience bank is original educational content with editorial scores. Its references are linked in the bank.
 

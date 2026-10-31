@@ -27,7 +27,7 @@ Every category has a designated **100-point introductory-course anchor**. More s
 | Schooler | 30 |
 | Rare | 60 |
 | Deep cut | 85 |
-| Neurokrillion | 100 |
+| One in a Krillion | 100 |
 
 Banks are curated, not exhaustive. A scientifically valid answer can be absent. Aliases and standard abbreviations are accepted. Loose spelling and sound-alike matches offer corrections. A clear match fills the canonical answer into the field; ambiguous matches offer choices. The player must press SEND or DIVE again to earn points. Corrections preserve the running clock and cannot reuse an already-used party answer. Exact names and registered aliases submit immediately. Very short near-misses and unrelated guesses remain invalid. Long answer keys offer search, score filters and incremental loading in both the study bank and Daily Dive results. Each category links its background source. Newly written explanations draw on Purves, Allen Institute, Janelia, Jackson Laboratory, NINDS, and relevant primary research.
 
@@ -71,3 +71,5 @@ Nicknames, buddy selection, daily streaks, ratings, and personal results are sto
 See [THIRD-PARTY.md](THIRD-PARTY.md). **The `krillion-*` artwork files and `original-krillion.css` are Krillion presentation material and are excluded from this project's MIT license.** This repository does not claim ownership or grant a license to those assets. The original game remains credited. The original neuroscience questions, room service, and adaptation code are MIT licensed; the font has its own SIL Open Font License.
 
 To rebuild the attributed anatomy supplement, download `https://purl.obolibrary.org/obo/uberon/nervous-minimal.obo` and run `python3 import-neural-ontology.py /path/to/nervous-minimal.obo`. The generated module records the source SHA-256 and selection count. Uberon-derived labels and synonyms retain CC BY 3.0 attribution; see `UBERON-LICENSE.txt`.
+
+Copied Daily Dive results use Krillion’s original tier symbols (🫧 🤡 🐟 🦑 🏮 🌟, with ⬛ for a miss) and a 🦐 heading. The included `daily.html` link opens Daily Dive directly. Buddy names, ordinary and gold artwork, and the date-limited 2026 Halloween krill follow the observed original presentation.
