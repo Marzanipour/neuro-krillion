@@ -43,9 +43,9 @@ export class Party {
   }
   newFuse(now){this.deadline=now+12000+Math.floor(this.random()*18000);this.fuseStart=now;this.danger=0;}
   start(now=Date.now()){
-    if(this.players.length<2)return false;
-    this.players.forEach(p=>{p.hearts=this.settings.lives;p.meter=0;p.score=0;p.answers=0;});
-    this.phase='playing';this.turn=0;this.log=[];this.round=0;this.cursor=-1;this.nextQuestion();this.newFuse(now);return true;
+    if(this.players.filter(p=>!p.spectator&&!p.disconnected).length<2)return false;
+    this.players.forEach(p=>{p.hearts=p.spectator||p.disconnected?0:this.settings.lives;p.meter=0;p.score=0;p.answers=0;});
+    this.phase='playing';this.turn=this.players.findIndex(p=>p.hearts>0);this.log=[];this.round=0;this.cursor=-1;this.nextQuestion();this.newFuse(now);return true;
   }
   nextTurn(now){
     let next=this.turn;
@@ -84,6 +84,7 @@ export class Party {
   remove(id,now=Date.now()){
     const index=this.players.findIndex(p=>p.id===id);if(index<0)return;
     if(this.phase==='lobby'){this.players.splice(index,1);return;}
+    if(this.players[index].spectator){this.players[index].disconnected=true;return;}
     this.players[index].hearts=0;this.players[index].disconnected=true;
     const alive=this.players.filter(p=>p.hearts>0);
     if(alive.length<=1){this.phase='finished';this.winner=alive[0]?.id;}

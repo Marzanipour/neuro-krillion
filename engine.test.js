@@ -7,7 +7,7 @@ const players=[{id:'a',name:'Ada'},{id:'b',name:'Ben'},{id:'c',name:'Cam'}];
 function party(settings={}){const game=new Party(players,settings,()=>.2);game.start(1000);game.questionId='transmitters';game.used=[];return game;}
 
 test('every category has a 100-point answer accessible from an intro course',()=>{
- assert.equal(BANK.length,33);
+ assert.ok(BANK.length>=111);
  for(const q of BANK){assert.ok(q.answers.some(a=>a.name===q.anchor&&a.points===100),q.id);assert.ok(q.answers.length>=7);}
 });
 test('aliases and abbreviations resolve without changing scientific identity',()=>{

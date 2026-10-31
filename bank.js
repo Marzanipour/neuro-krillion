@@ -1,3 +1,4 @@
+import {EXPANSION} from './bank-expansion.js';
 // Original, editorially scored educational bank. Scores are not survey frequencies.
 // Row: canonical answer | points | explanation | optional aliases separated by ~
 const sets = [
@@ -498,11 +499,12 @@ export const TIERS = [
   {points:85,name:'Deep cut',color:'#fa9fb9'},
   {points:100,name:'Neurokrillion',color:'#f3d883'}
 ];
-export const BANK = sets.map(([id,prompt,topic,hint,anchor,source,rows]) => ({
+const originalBank = sets.map(([id,prompt,topic,hint,anchor,source,rows]) => ({
   id,prompt,topic,hint,anchor,source:source.includes("ncbi.nlm.nih.gov/books/") ? "https://www.ncbi.nlm.nih.gov/books/NBK10799/toc/" : source,
   answers: rows.trim().split('\n').map(row => {
     const [name,points,explanation,aliases=''] = row.trim().split('|');
     return {name,points:Number(points),explanation,aliases:aliases.split('~').filter(Boolean)};
   })
 }));
+export const BANK = [...originalBank,...EXPANSION];
 export const tierFor = points => TIERS.find(t => t.points === points) || TIERS[0];

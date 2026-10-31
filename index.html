@@ -7,16 +7,15 @@
   <meta name="description" content="A neuroscience party game. Name a niche answer, pass the puffer, and keep your neurons firing. Play with friends or practice solo.">
   <title>Neuro Krillion · Puffer Party</title>
   <link rel="icon" href="puffer.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="original-krillion.css">
   <link rel="stylesheet" href="style.css">
-  <script defer src="peerjs.min.js"></script>
+
   <script type="module" src="app.js"></script>
 </head>
-<body>
-  <div class="ocean" aria-hidden="true"><div class="rays"></div><div class="particles"></div><div class="reef reef-left"></div><div class="reef reef-right"></div><div class="seafloor"></div></div>
-  <header class="topbar"><button class="icon-button" id="menu-button" aria-label="Open menu">☰</button><a class="edition" href="#">A DEEPER KIND OF BRAIN GAME</a><button class="icon-button" id="sound-button" aria-label="Turn sound on" aria-pressed="false">♪<span class="sound-slash">╱</span></button></header>
+<body class="kr-ad-layout">
+  <header class="topbar"><button class="icon-button" id="menu-button" aria-label="Open menu" aria-controls="menu">☰</button><button class="icon-button" id="sound-button" aria-label="Turn sound off" aria-pressed="true">◖◀</button></header>
   <nav id="menu" class="panel nav-panel" hidden aria-label="Game menu"><button data-action="home">Puffer Party</button><button data-action="daily">Daily neural dive</button><button data-action="bank">Study the answer bank</button><button data-action="rules">How to play</button><button data-action="stats">My dive log</button><a href="https://github.com/marzanipour/neuro-krillion" target="_blank" rel="noopener">View source ↗</a></nav>
   <main id="app"></main>
-  <footer><span class="footer-fish">&lt;°)))&gt;&lt;</span><span>one in a billion neurons.</span><p>An independent neuroscience adaptation inspired by <a href="https://krillion.io/party" target="_blank" rel="noopener">Krillion’s Puffer Party</a>.<br>Original questions, scoring & artwork. Not affiliated with Krillion.</p></footer>
   <dialog id="modal"><div class="modal-top"><span id="modal-eyebrow">NEURO KRILLION</span><button class="icon-button" id="modal-close" aria-label="Close dialog">×</button></div><div id="modal-content"></div></dialog>
   <div id="toast" role="status" aria-live="polite" hidden></div>
 </body>
