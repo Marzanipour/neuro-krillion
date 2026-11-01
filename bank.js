@@ -1,6 +1,6 @@
 import {EXPANSION} from './bank-expansion.js';
 import {ADDITIONS} from './bank-additions.js';
-import {buildPlayBank} from './bank-play.js';
+import {buildPlayBank} from './bank-play.js?v=7';
 // Original, editorially scored educational bank. Scores are not survey frequencies.
 // Row: canonical answer | points | explanation | optional aliases separated by ~
 const sets = [

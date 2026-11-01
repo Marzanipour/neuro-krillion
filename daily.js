@@ -1,5 +1,5 @@
-import {BANK,PLAY_BANK} from './bank.js?v=5';
-import {shuffle} from './engine.js?v=5';
+import {BANK,PLAY_BANK} from './bank.js?v=7';
+import {shuffle} from './engine.js?v=7';
 import {resolveGuess} from './guesses.js';
 import {diveDuration} from './dive-motion.js';
 export const ANSWER_MS=25000,PREVIEW_MS=2500;

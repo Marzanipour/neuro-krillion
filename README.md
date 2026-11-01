@@ -18,7 +18,7 @@ A neuroscience adaptation of Krillion's Puffer Party. Name an unused answer, pas
 
 **10 broad playable prompts · 241–1,903 answers per prompt · 3,105 distinct accepted answer names.** The 113 focused study sets remain in the library, including the earlier specialist questions. There are 6,291 scored entries across play and study sets; this count includes names appearing in multiple relevant categories. Coverage includes cellular physiology, anatomy, circuits, senses, development, plasticity, cognition, sleep, research methods, and clinical definitions. The anatomy supplement derives from 1,636 selected human-subset neural structures in the open Uberon ontology, with exact synonyms and term-level reference links. Side duplicates, obsolete terms and abstract grouping labels are filtered. No live API is required to play.
 
-Every category has a designated **100-point introductory-course anchor**. More specialized answers generally earn 60 or 85 points. This deliberately makes the maximum attainable with introductory knowledge while rewarding deeper knowledge. Scores are editorial tiers, not measured survey frequencies.
+Every category has exactly one **100-point introductory-course anchor**. Other answers that were 100-point anchors in narrower study sets score 85 points in the broader game prompt. More specialized answers generally earn 60 or 85 points. This deliberately makes the maximum attainable with introductory knowledge while rewarding deeper knowledge. Scores are editorial tiers, not measured survey frequencies.
 
 | Tier | Points |
 |---|---:|

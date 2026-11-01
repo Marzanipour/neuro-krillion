@@ -1,4 +1,4 @@
-import {BANK,PLAY_BANK} from './bank.js?v=5';
+import {BANK,PLAY_BANK} from './bank.js?v=7';
 import {resolveGuess} from './guesses.js';
 
 export const normalize = value => String(value).normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
